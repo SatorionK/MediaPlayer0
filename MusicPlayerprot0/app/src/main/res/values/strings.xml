@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MusicPlayerprot0</string>
+    <string name="app_tab1">プレイリスト</string>
+    <string name="app_tab2">フォルダ</string>
+    <string name="app_tab3">アルバム</string>
+    <string name="app_tab4">アーティスト</string>
+    <string name="app_tab5">ジャンル</string>
+</resources>
