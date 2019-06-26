@@ -23,6 +23,4 @@ public class Fragment_Art extends Fragment {
         v = inflater.inflate(, container, false);
         return v;
     }
-
-
 }

@@ -26,8 +26,10 @@ public class MainActivity extends AppCompatActivity{
         vpadapter = new ViewPageAdapter(getSupportFragmentManager());
 
         //各フラグメントを入れる
-        vpadapter.addFragment();
-
+        vpadapter.addFragment(new Fragment_Alb(), "アルバム");
+        vpadapter.addFragment(new Fragment_Art(), "アーティスト");
+        vpadapter.addFragment(new Fragment_Fol(), "フォルダ");
+        vpadapter.addFragment(new Fragment_Jan(), "ジャンル");
 
 
 //--------------------------------------------------------------------------------------------------
