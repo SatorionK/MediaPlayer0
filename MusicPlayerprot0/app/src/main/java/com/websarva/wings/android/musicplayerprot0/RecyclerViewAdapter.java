@@ -30,6 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View v;
         //row.xmlレイアウトをインフレートする
         v = LayoutInflater.from(mContext).inflate(R.layout.row, viewGroup, false);
+
         MyViewHolder holder = new MyViewHolder(v);
         return holder;
     }
