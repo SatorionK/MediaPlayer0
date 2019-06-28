@@ -19,7 +19,7 @@ public class Fragment_Jan extends Fragment {
     @Override
     @Nullable
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        v = inflater.inflate(, container, false);
+        v = inflater.inflate(R.layout.fragment_jan, container, false);
         return v;
     }
 }

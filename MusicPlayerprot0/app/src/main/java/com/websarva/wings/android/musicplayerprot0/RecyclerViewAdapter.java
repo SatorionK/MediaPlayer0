@@ -64,9 +64,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public MyViewHolder(View itemView){
             super(itemView);
 
-            tv_artN = itemView.findViewById(R.id.);
-            tv_musicN = itemView.findViewById(R.id.);
-            tv_img = itemView.findViewById(R.id.);
+            tv_artN = itemView.findViewById(R.id.tvArtistName);
+            tv_musicN = itemView.findViewById(R.id.tvSongName);
+            tv_img = itemView.findViewById(R.id.img_row);
         }
 
 

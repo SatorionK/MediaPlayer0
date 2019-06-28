@@ -30,8 +30,11 @@ public class MainActivity extends AppCompatActivity{
         vpadapter.addFragment(new Fragment_Art(), "アーティスト");
         vpadapter.addFragment(new Fragment_Fol(), "フォルダ");
         vpadapter.addFragment(new Fragment_Jan(), "ジャンル");
+        viewPager.setAdapter(vpadapter);
+        tabLayout.setupWithViewPager(viewPager);
 
 
 //--------------------------------------------------------------------------------------------------
+}
 }
 
