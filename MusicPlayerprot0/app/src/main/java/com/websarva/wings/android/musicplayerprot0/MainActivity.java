@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
     }
     //許可されている場合
         else
-
     {
         Toast.makeText(this, "権限が許可されている！", Toast.LENGTH_SHORT).show();
     }
