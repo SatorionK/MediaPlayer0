@@ -32,7 +32,8 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
 //--------------------------------------------------------------------------------------------------
     //タブ名を記載
     public CharSequence getPageTitle(int position){
-        return super.getPageTitle(position);
+        //return super.getPageTitle(position);
+        return title.get(position);
     }
 //--------------------------------------------------------------------------------------------------
     //オリジナルメソッド
