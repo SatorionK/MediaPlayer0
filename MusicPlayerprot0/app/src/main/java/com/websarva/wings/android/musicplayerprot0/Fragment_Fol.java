@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,9 +64,12 @@ public class Fragment_Fol extends Fragment {
                     String music_name = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME));
                     String art = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
                     String uri2 = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
-
+                    int time =  cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
+                    //ここでms→MM：SSに変更
+                    String timech = String.format("%2d:%2d", time/60000, time/1000%60);
+                    
                     //リストに加えていく
-                    fol_musicinfo.add(new MusicInfo(art, music_name, uri2));
+                    fol_musicinfo.add(new MusicInfo(art, music_name, uri2, timech));
 
 
                     //お作法：取得した結果に対するカーソルを次の行に移動させる

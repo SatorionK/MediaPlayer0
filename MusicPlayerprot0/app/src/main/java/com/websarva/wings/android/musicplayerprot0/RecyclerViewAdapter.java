@@ -42,6 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         myViewHolder.tv_artN.setText(mData.get(i).getArt());
         myViewHolder.tv_musicN.setText(mData.get(i).getMusic_name());
         myViewHolder.tv_img.setImageResource(mData.get(i).getIng());
+        myViewHolder.tv_time.setText(mData.get(i).getTimei());
     }
 
 
@@ -51,14 +52,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return mData.size();
     }
 
-
-
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
     //holderクラスの作成
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        //フィールド：アーティスト名、曲名、画像
+        //フィールド：アーティスト名、曲名、画像、再生時間
         private TextView tv_artN;
         private TextView tv_musicN;
         private ImageView tv_img;
+        private TextView tv_time;
 
         //コンストラクタ
         public MyViewHolder(View itemView){
@@ -67,10 +69,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tv_artN = itemView.findViewById(R.id.tvArtistName);
             tv_musicN = itemView.findViewById(R.id.tvSongName);
             tv_img = itemView.findViewById(R.id.img_row);
+            tv_time = itemView.findViewById(R.id.time);
         }
-
-
     }
-
 
 }
