@@ -67,7 +67,7 @@ public class Fragment_Fol extends Fragment {
                     int time =  cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
                     //ここでms→MM：SSに変更
                     String timech = String.format("%2d:%2d", time/60000, time/1000%60);
-                    
+
                     //リストに加えていく
                     fol_musicinfo.add(new MusicInfo(art, music_name, uri2, timech));
 
