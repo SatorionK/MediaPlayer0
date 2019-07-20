@@ -1,23 +1,16 @@
 package com.websarva.wings.android.musicplayerprot0;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -48,29 +41,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(vpadapter);
         tabLayout.setupWithViewPager(viewPager);
 
-//--------------------------------------------------------------------------------------------------
-        //外部ストレージ使用のため、パーミッション設定（マニフェストにも、記述忘れずに）
-        //oNCreate内にはいいている
-        //パーミッションがあるか確認
-        int permissionCheck = ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE);
-        //値から許可を受けていない場合の処理
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            //1度拒否されたかの確認
-            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, READ_EXTERNAL_STORAGE)) {
-
-            ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, REQUEST_CODE);
-            } else {
-
-//1回許可して、設定でOFFにした際にこちらのルートに入る
-                Toast.makeText(this, "パーミッションが抹消されています。", Toast.LENGTH_SHORT).show();
-               ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, REQUEST_CODE);
-
-            }
-        }
-        //許可されている場合
-        else {
-
-        }
+        //新たなクラス作成
+        RPermissionUtiles.doReqPermission(MainActivity.this, 1, MainActivity.this);
     }
 
         //--------------------------------------------------------------------------------------------------
