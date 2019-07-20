@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
         //--------------------------------------------------------------------------------------------------
-        //oNCreate外にでていている
     @Override
     public void onRequestPermissionsResult ( int requestCode, String permissions[],int[] grantResults){
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -56,39 +55,37 @@ public class MainActivity extends AppCompatActivity {
                     if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                         // パーミッションが必要な処理
                         Toast.makeText(this, "パーミッション追加しました", Toast.LENGTH_SHORT).show();
-                    }else{
-
-                    if(ActivityCompat.shouldShowRequestPermissionRationale(this, READ_EXTERNAL_STORAGE)) {
-                        // パーミッションが得られなかった時
+                    }
+                    else{
+                        if(ActivityCompat.shouldShowRequestPermissionRationale(this, READ_EXTERNAL_STORAGE)) {
+                        // パーミッションが得られなかった時の警告
                         new AlertDialog.Builder(this).setTitle("カメラ機能の使用を許可してください")
-                                .setMessage("カメラを利用するためには、機能を許可する必要があります。")
-                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        ActivityCompat.requestPermissions(MainActivity.this, new String[]{READ_EXTERNAL_STORAGE}, REQUEST_CODE);
-                                    }
-                                }).create().show();
+                            .setMessage("カメラを利用するためには、機能を許可する必要があります。")
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                ActivityCompat.requestPermissions(MainActivity.this, new String[]{READ_EXTERNAL_STORAGE}, REQUEST_CODE);
+                                }}).create().show();
 
-                    }else{
-                        new AlertDialog.Builder(this).setTitle("カメラ機能の使用するために下記のの通り設定してください")
+                        }
+                        else{
+                            //今後表示しないにチェックを入れ、許可しないを押下した際の処理
+                            new AlertDialog.Builder(this).setTitle("カメラ機能の使用するために下記の通り設定してください")
                                 .setMessage("①設定を開く\n②権限を選択\n③カメラをONにする")
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                        //Fragmentの場合はgetContext().getPackageName()
                                         Uri uri = Uri.fromParts("package", getPackageName(), null);
                                         intent.setData(uri);
                                         startActivity(intent);
-                                    }
-                                }).create().show();
-
+                                        }}).create().show();
+                       }
                     }
-                    break;
-            }}
-        }
+                break;
+            }
+    }
 //--------------------------------------------------------------------------------------------------
 
-
-    }
+}
 

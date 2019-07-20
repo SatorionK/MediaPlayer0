@@ -28,8 +28,9 @@ public class RPermissionUtiles {
             }
             else {
                 //1回許可して、設定でOFFにした際にこちらのルートに入る
-                Toast.makeText(context, "パーミッションが抹消されています。", Toast.LENGTH_SHORT).show();
                 ActivityCompat.requestPermissions(activity, new String[]{READ_EXTERNAL_STORAGE}, REQUEST_CODE);
+
+                //Toast.makeText(context, "パーミッションが抹消されています。", Toast.LENGTH_SHORT).show();
             }
         }
         //許可されている場合
