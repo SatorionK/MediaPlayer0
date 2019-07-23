@@ -48,15 +48,14 @@ public class MainActivity extends AppCompatActivity {
         //--------------------------------------------------------------------------------------------------
     @Override
     public void onRequestPermissionsResult ( int requestCode, String permissions[],int[] grantResults){
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
             switch (requestCode) {
                 //コードごとに場合分けすること
                 case 1:
                     if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                         // パーミッションが必要な処理
                         Toast.makeText(this, "パーミッション追加しました", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
+                    //}else{
                         if(ActivityCompat.shouldShowRequestPermissionRationale(this, READ_EXTERNAL_STORAGE)) {
                         // パーミッションが得られなかった時の警告
                         new AlertDialog.Builder(this).setTitle("カメラ機能の使用を許可してください")
@@ -81,10 +80,12 @@ public class MainActivity extends AppCompatActivity {
                                         startActivity(intent);
                                         }}).create().show();
                        }
-                    }
-                break;
+
+                    }else{
+                        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+               // break;
             }
-    }
+    }}
 //--------------------------------------------------------------------------------------------------
 
 }
